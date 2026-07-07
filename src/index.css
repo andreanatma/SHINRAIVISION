@@ -846,12 +846,12 @@ html, body {
 .contact .info p {
     margin-bottom: 0;
     font-size: 14px;
-    color: #666;
+    color: var(--color-gray);
     line-height: 24px;
 }
 .contact .info p a {
     color: var(--color-blue-text);
-    font-size: 16px;
+    font-size: 14px;
 }
 .contact .info .address:hover i {
     background: var(--primary);
@@ -1102,4 +1102,157 @@ html, body {
 
 @media (max-width: 400px) {
     .contact-widget-panel { width: 90vw; right: -10px; }
+}
+
+/* =========================================================
+   MOBILE RESPONSIVE ENHANCEMENTS (ditambahkan)
+   ========================================================= */
+
+/* --- Global spacing lebih ringkas di mobile --- */
+@media (max-width: 767px) {
+  section { padding: 50px 0; }
+}
+
+/* --- NAVBAR MOBILE --- */
+@media (max-width: 991px) {
+  #header { padding: 12px 0; }
+  /* header transparan diganti gradient saat belum scroll, biar teks tetap terbaca di atas hero */
+  #header:not(.header-scrolled) {
+    background: linear-gradient(120deg, #081729 0%, #0f2e57 55%, #164a92 100%);
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.2);
+  }
+  #header .logo .h3 { font-size: 15px; letter-spacing: 0.3px; }
+
+  .navbar-toggler {
+    font-size: 22px;
+    padding: 4px 6px;
+    z-index: 1001;
+    position: relative;
+  }
+
+  #navMenu.navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 8px;
+    background: linear-gradient(180deg, #0f2e57 0%, #081729 100%);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+    border-radius: 0 0 14px 14px;
+    padding: 6px 0;
+    z-index: 1000;
+  }
+
+  .navbar-nav {
+    width: 100%;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 14px 24px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 15px;
+  }
+  .navbar-nav .nav-item:last-child .nav-link { border-bottom: none; }
+  .navbar .nav-link::after { display: none; } /* underline animasi tidak relevan di mobile */
+
+  .navbar-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 996;
+  }
+}
+
+/* --- HERO MOBILE --- */
+@media (max-width: 991px) {
+  #hero {
+    min-height: auto;
+    padding: 110px 0 60px 0;
+    text-align: center;
+  }
+  #hero h1 { font-size: 30px; }
+  #hero h2 { font-size: 17px; }
+  #hero ul { display: inline-block; text-align: left; margin-bottom: 20px; }
+  .hero-img { max-width: 220px; margin: 0 auto; }
+}
+@media (max-width: 575px) {
+  #hero h1 { font-size: 24px; }
+  #hero h2 { font-size: 15px; }
+  #hero ul li { font-size: 15px; }
+  .btn-cta-wa, .btn-cta-quote {
+    display: block;
+    width: 100%;
+    margin: 0 0 12px 0 !important;
+    text-align: center;
+  }
+  .hero-img { max-width: 170px; }
+}
+
+/* --- SECTION TITLE MOBILE --- */
+@media (max-width: 575px) {
+  .section-title p, .section-title h3 { font-size: 22px; }
+  .section-title h2::after, .section-title-left h2::after { width: 70px; }
+}
+
+/* --- ABOUT MOBILE --- */
+@media (max-width: 575px) {
+  .about h2 { font-size: 24px; }
+  .about .icon-boxes h2 { font-size: 22px; }
+  .about .icon-boxes .description-home { font-size: 15px; line-height: 26px; }
+  .icon-box .description { margin-left: 0; font-size: 15px; }
+}
+
+/* --- CONTACT MOBILE --- */
+@media (max-width: 575px) {
+  .contact .info .col-1 { flex: 0 0 46px; max-width: 46px; }
+  .contact .info .col-11 { flex: 0 0 calc(100% - 46px); max-width: calc(100% - 46px); padding-left: 12px !important; }
+  .contact .info, .contact .form-box { padding: 20px; }
+  .contact .map-box iframe { height: 260px; }
+}
+
+/* --- FAQ MOBILE --- */
+@media (max-width: 575px) {
+  .faq-question { padding: 16px; gap: 10px; }
+  .faq-question h3 { font-size: 14.5px; }
+  .faq-answer { padding: 0 16px; }
+  .faq-item-active .faq-answer { padding: 0 16px 18px 16px; }
+}
+
+/* --- ARTICLE DETAIL MOBILE --- */
+@media (max-width: 575px) {
+  .article-detail-title { font-size: 1.4rem; }
+  .article-detail-img-wrap { padding: 10px; }
+  .article-detail-body { font-size: 0.95rem; }
+}
+
+/* --- FOOTER MOBILE --- */
+@media (max-width: 767px) {
+  #footer .footer-brand {
+    border-left: none;
+    padding-left: 0;
+    text-align: center;
+  }
+  #footer .footer-brand p { text-align: center; }
+  #footer h4 { text-align: center; }
+  #footer .footer-links,
+  #footer .footer-contact,
+  #footer .footer-social {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+}
+
+/* --- TESTIMONIALS MOBILE --- */
+@media (max-width: 575px) {
+  .testimonials { padding: 55px 0; }
+  .testimonial-item h3 { font-size: 16px; }
+  .testimonial-item p { font-size: 14px; }
+}
+
+/* --- CONTACT WIDGET (FLOATING CHAT) MOBILE --- */
+@media (max-width: 575px) {
+  .contact-widget { right: 12px; bottom: 70px; }
+  .contact-widget-toggle { width: 50px; height: 50px; font-size: 19px; }
+  .contact-widget-panel { width: min(88vw, 320px); right: -6px; }
+  .back-to-top { right: 12px; bottom: 12px; width: 40px; height: 40px; }
 }
