@@ -4,21 +4,52 @@ const INITIAL_FORM = { name: '', email: '', telephone: '', message: '' };
 const MAPS_QUERY = encodeURIComponent(
   'PT Shinrai Vision Engineering, Jl. Raya Ciantra, Ciantra, Cikarang Selatan, Kabupaten Bekasi, Jawa Barat 17530'
 );
+// Tujuan Email FormSubmit.co untuk mengirimkan pesan ke email
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/andrean3602@gmail.com';
 
 export default function Contact() {
   const [form, setForm] = useState(INITIAL_FORM);
   const [status, setStatus] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   function handleChange(event) {
     const { name, value } = event.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    // TODO: hubungkan ke endpoint backend / layanan email (mis. Formspree, EmailJS, API sendiri)
-    setStatus('Pesan berhasil dikirim!');
-    setForm(INITIAL_FORM);
+    setIsSubmitting(true);
+    setStatus('');
+
+    try {
+      const response = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          telephone: form.telephone,
+          message: form.message,
+          _subject: `Pesan Baru dari Website - ${form.name}`,
+          _template: 'table',
+        }),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setForm(INITIAL_FORM);
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      setStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -32,6 +63,7 @@ export default function Contact() {
         <div className="row justify-content-center align-items-center">
           <div className="col-lg-12 mb-5" data-aos="zoom-in" data-aos-delay="100">
             <div className="map-box">
+              {/* Diperbaiki: URL Google Maps dan penambahan simbol $ pada MAPS_QUERY */}
               <iframe
                 src={`https://maps.google.com/maps?q=${MAPS_QUERY}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
                 title="Lokasi PT Shinrai Vision Engineering di Google Maps"
@@ -68,6 +100,7 @@ export default function Contact() {
                   <div className="col-11 ps-4">
                     <h4>Whatsapp:</h4>
                     <p>
+                      {/* Diperbaiki: Menambahkan tag pembuka <a */}
                       <a
                         href="https://wa.me/6288290497317"
                         target="_blank"
@@ -79,6 +112,7 @@ export default function Contact() {
                       </a>
                     </p>
                     <p>
+                      {/* Diperbaiki: Menambahkan tag pembuka <a */}
                       <a
                         href="https://wa.me/6282123077455"
                         target="_blank"
@@ -100,21 +134,23 @@ export default function Contact() {
                   <div className="col-11 ps-4">
                     <h4>Email:</h4>
                     <p>
+                      {/* Diperbaiki: Menambahkan tag pembuka <a */}
                       <a
-                        href="mailto:Sales1@shinraivision.com"
+                        href="mailto:sales1@shinraivision.com"
                         title="Email Sales PT Shinrai"
                         className="text-dark"
                       >
-                        Sales1@shinraivision.com
+                        sales1@shinraivision.com
                       </a>
                     </p>
                     <p>
+                      {/* Diperbaiki: Menambahkan tag pembuka <a */}
                       <a
-                        href="mailto:Marketing@shinraivision.com"
+                        href="mailto:marketing@shinraivision.com"
                         title="Email Marketing PT Shinrai"
                         className="text-dark"
                       >
-                        Marketing@shinraivision.com
+                        marketing@shinraivision.com
                       </a>
                     </p>
                   </div>
@@ -184,10 +220,20 @@ export default function Contact() {
                   ></textarea>
                   <label htmlFor="message">Message</label>
                 </div>
-                <button type="submit" className="btn btn-primary w-100 py-2">
-                  <i className="fa fa-paper-plane me-2"></i>Send
+                <button type="submit" className="btn btn-primary w-100 py-2" disabled={isSubmitting}>
+                  <i className="fa fa-paper-plane me-2"></i>
+                  {isSubmitting ? 'Mengirim...' : 'Send'}
                 </button>
-                {status && <p className="text-success mt-3 mb-0 text-center">{status}</p>}
+                {status === 'success' && (
+                  <p className="text-success mt-3 mb-0 text-center">
+                    Pesan berhasil dikirim ke tim kami!
+                  </p>
+                )}
+                {status === 'error' && (
+                  <p className="text-danger mt-3 mb-0 text-center">
+                    Gagal mengirim pesan, silakan coba lagi atau hubungi kami via WhatsApp.
+                  </p>
+                )}
               </form>
             </div>
           </div>

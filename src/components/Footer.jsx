@@ -68,8 +68,8 @@ export default function Footer() {
                 </li>
                 <li>
                   <i className="far fa-envelope" aria-hidden="true"></i>
-                  <a href="mailto:Sales1@shinraivision.com" title="Kirim Email ke Sales">
-                    Sales1@shinraivision.com
+                  <a href="mailto:sales1@shinraivision.com" title="Kirim Email ke Sales">
+                    sales1@shinraivision.com
                   </a>
                 </li>
               </ul>

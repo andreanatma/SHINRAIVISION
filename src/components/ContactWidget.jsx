@@ -2,21 +2,52 @@ import { useState } from 'react';
 
 const INITIAL_FORM = { name: '', email: '', message: '' };
 
+// Tujuan Email FormSubmit.co untuk mengirimkan pesan ke email
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/andrean3602@gmail.com';
+
 export default function ContactWidget() {
   const [open, setOpen] = useState(false);
   const [form, setForm] = useState(INITIAL_FORM);
   const [status, setStatus] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   function handleChange(event) {
     const { name, value } = event.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    // TODO: hubungkan ke endpoint backend / layanan email (mis. Formspree, EmailJS, API sendiri)
-    setStatus('Pesan berhasil dikirim! Kami akan segera membalas.');
-    setForm(INITIAL_FORM);
+    setIsSubmitting(true);
+    setStatus('');
+
+    try {
+      const response = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          _subject: `Pesan Cepat dari Website - ${form.name}`,
+          _template: 'table',
+        }),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setForm(INITIAL_FORM);
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      setStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -61,10 +92,20 @@ export default function ContactWidget() {
                 value={form.message}
                 onChange={handleChange}
               ></textarea>
-              <button type="submit" className="contact-widget-submit">
-                <i className="fas fa-paper-plane" aria-hidden="true"></i> Kirim
+              <button type="submit" className="contact-widget-submit" disabled={isSubmitting}>
+                <i className="fas fa-paper-plane" aria-hidden="true"></i>
+                {isSubmitting ? ' Mengirim...' : ' Kirim'}
               </button>
-              {status && <p className="contact-widget-status">{status}</p>}
+              {status === 'success' && (
+                <p className="contact-widget-status">
+                  Pesan berhasil dikirim! Kami akan segera membalas.
+                </p>
+              )}
+              {status === 'error' && (
+                <p className="contact-widget-status contact-widget-status-error">
+                  Gagal mengirim pesan, silakan coba lagi.
+                </p>
+              )}
             </form>
           </div>
         </div>

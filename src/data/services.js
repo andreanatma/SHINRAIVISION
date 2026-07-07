@@ -1,28 +1,34 @@
 const services = [
   {
-    id: 'fabrication',
-    title: 'Fabrication',
-    image: '/bahan/img/service/fabrication.png',
-    alt: 'Jasa Fabrication Projects Fabrikasi Logam Cikarang',
+    id: 'analysis',
+    title: 'Analysis',
+    image: '/bahan/img/service/Analysis.png',
+    alt: 'Jasa Analysis Kebutuhan Machining dan Fabrikasi',
   },
-  // {
-  //   id: 'industrial-part',
-  //   title: 'Industrial Part',
-  //   image: '/bahan/img/service/industrial-part.png',
-  //   alt: 'Jasa Pembuatan Industrial Part Presisi',
-  // },
   {
-    id: 'machining',
-    title: 'Machining',
-    image: '/bahan/img/service/machining.png',
-    alt: 'Jasa Machining Parts Cikarang',
+    id: 'budgeting',
+    title: 'Budgeting',
+    image: '/bahan/img/service/Budgeting.png',
+    alt: 'Jasa Budgeting Estimasi Biaya Proyek Machining',
   },
-  // {
-  //   id: 'welding',
-  //   title: 'Welding',
-  //   image: '/bahan/img/service/welding.png',
-  //   alt: 'Jasa Welding dan Pengelasan Logam',
-  // },
+  {
+    id: 'design',
+    title: 'Design',
+    image: '/bahan/img/service/Design.png',
+    alt: 'Jasa Design Engineering Presisi',
+  },
+  {
+    id: 'build',
+    title: 'Build',
+    image: '/bahan/img/service/Build.png',
+    alt: 'Jasa Build Fabrikasi dan Machining',
+  },
+  {
+    id: 'consulting',
+    title: 'Consulting',
+    image: '/bahan/img/service/Consulting.png',
+    alt: 'Jasa Consulting Engineering PT Shinrai Vision Engineering',
+  },
 ];
 
 export default services;

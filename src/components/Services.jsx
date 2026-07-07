@@ -4,12 +4,13 @@ export default function Services() {
   return (
     <section id="service" className="service">
       <div className="container">
-        <div className="section-title text-center mt-3" data-aos="fade-up">
-          <h3>Our Services</h3>
+        <div className="section-title" data-aos="fade-up">
+          <h2>What We Do</h2>
+          <p>Our Services</p>
         </div>
-        <div className="row justify-content-center g-3" data-aos="fade-left">
+        <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3 justify-content-center" data-aos="fade-left">
           {services.map((service, index) => (
-            <div className="col-lg-3 col-md-6 col-6" key={service.id}>
+            <div className="col" key={service.id}>
               <div
                 className="service-item"
                 data-aos="zoom-in"
