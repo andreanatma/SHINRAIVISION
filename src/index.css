@@ -17,12 +17,12 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 35px;
+    scroll-padding-top: 33px;
 }
 
 section[id],
 #hero {
-    scroll-margin-top: 35px;
+    scroll-margin-top: 33px;
 }
 
 /* ================= BASE ================= */
@@ -229,6 +229,7 @@ html, body {
     background-repeat: no-repeat;
     opacity: 0.35;
     z-index: 1;
+    pointer-events: none;
     -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'><path d='M0,50 C150,110 350,0 600,55 C850,110 1050,10 1200,50 L1200,120 L0,120 Z'/></svg>");
     mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'><path d='M0,50 C150,110 350,0 600,55 C850,110 1050,10 1200,50 L1200,120 L0,120 Z'/></svg>");
     -webkit-mask-size: 100% 100%;
@@ -244,6 +245,7 @@ html, body {
     bottom: 0;
     left: 0;
     z-index: 2;
+    pointer-events: none;
 }
 .wave1 use { animation: move-forever 4s linear infinite; animation-delay: -2s; }
 .wave2 use { animation: move-forever 6s linear infinite; animation-delay: -3s; }
@@ -1123,6 +1125,14 @@ html, body {
   }
   #header .logo .h3 { font-size: 15px; letter-spacing: 0.3px; }
 
+  /* Bootstrap's .navbar has position:relative by default. Karena nav#navbar
+     hanya selebar tombol toggler (bukan selebar header), #navMenu yang absolute
+     jadi ikut sempit & terpotong di kanan layar. Netralkan jadi static supaya
+     #header (position:fixed via .fixed-top) yang menjadi containing block. */
+  #header .navbar {
+    position: static;
+  }
+
   .navbar-toggler {
     font-size: 22px;
     padding: 4px 6px;
@@ -1135,6 +1145,7 @@ html, body {
     top: 100%;
     left: 0;
     right: 0;
+    width: 100%;
     margin-top: 8px;
     background: linear-gradient(180deg, #0f2e57 0%, #081729 100%);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
