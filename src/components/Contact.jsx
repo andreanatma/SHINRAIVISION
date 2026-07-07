@@ -5,7 +5,7 @@ const MAPS_QUERY = encodeURIComponent(
   'PT Shinrai Vision Engineering, Jl. Raya Ciantra, Ciantra, Cikarang Selatan, Kabupaten Bekasi, Jawa Barat 17530'
 );
 // Tujuan Email FormSubmit.co untuk mengirimkan pesan ke email
-const FORM_ENDPOINT = 'https://formsubmit.co/ajax/andrean3602@gmail.com';
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/marketing@shinraivision.com';
 
 export default function Contact() {
   const [form, setForm] = useState(INITIAL_FORM);

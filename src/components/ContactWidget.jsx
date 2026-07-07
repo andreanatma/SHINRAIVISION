@@ -3,7 +3,7 @@ import { useState } from 'react';
 const INITIAL_FORM = { name: '', email: '', message: '' };
 
 // Tujuan Email FormSubmit.co untuk mengirimkan pesan ke email
-const FORM_ENDPOINT = 'https://formsubmit.co/ajax/andrean3602@gmail.com';
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/marketing@shinraivision.com';
 
 export default function ContactWidget() {
   const [open, setOpen] = useState(false);
