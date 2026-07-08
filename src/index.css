@@ -17,12 +17,12 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 33px;
+    scroll-padding-top: 35px;
 }
 
 section[id],
 #hero {
-    scroll-margin-top: 33px;
+    scroll-margin-top: 35px;
 }
 
 /* ================= BASE ================= */
@@ -269,7 +269,7 @@ html, body {
     position: relative;
     font-size: 14px;
     font-weight: 500;
-    line-height: 1px;
+    line-height: 1.6;
     margin: 0 0 5px 0;
     padding: 0;
     letter-spacing: 2px;
@@ -280,12 +280,15 @@ html, body {
 .section-title h2::after,
 .section-title-left h2::after {
     content: "";
-    display: inline-block;
+    display: block;
     width: 120px;
     height: 1px;
-    margin: 4px 10px;
+    margin: 8px auto 0 auto;
     background: #1a1dcc;
     position: relative;
+}
+.section-title-left h2::after {
+    margin: 8px 0 0 0;
 }
 .section-title p,
 .section-title h3,
@@ -1141,6 +1144,7 @@ html, body {
   }
 
   #navMenu.navbar-collapse {
+    display: block; /* override Bootstrap's display:none, kita animasikan lewat opacity/transform */
     position: absolute;
     top: 100%;
     left: 0;
@@ -1152,7 +1156,38 @@ html, body {
     border-radius: 0 0 14px 14px;
     padding: 6px 0;
     z-index: 1000;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-12px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
   }
+
+  #navMenu.navbar-collapse.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  /* animasi setiap item nav muncul berurutan (stagger) saat menu dibuka */
+  #navMenu.navbar-collapse .nav-item {
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  #navMenu.navbar-collapse.show .nav-item {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  #navMenu.navbar-collapse.show .nav-item:nth-child(1) { transition-delay: 0.04s; }
+  #navMenu.navbar-collapse.show .nav-item:nth-child(2) { transition-delay: 0.08s; }
+  #navMenu.navbar-collapse.show .nav-item:nth-child(3) { transition-delay: 0.12s; }
+  #navMenu.navbar-collapse.show .nav-item:nth-child(4) { transition-delay: 0.16s; }
+  #navMenu.navbar-collapse.show .nav-item:nth-child(5) { transition-delay: 0.20s; }
+  #navMenu.navbar-collapse.show .nav-item:nth-child(6) { transition-delay: 0.24s; }
+  #navMenu.navbar-collapse.show .nav-item:nth-child(7) { transition-delay: 0.28s; }
 
   .navbar-nav {
     width: 100%;
@@ -1162,6 +1197,12 @@ html, body {
     padding: 14px 24px !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     font-size: 15px;
+    transition: background-color 0.2s ease, padding-left 0.2s ease;
+  }
+  .navbar-nav .nav-link:active,
+  .navbar-nav .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.06);
+    padding-left: 30px !important;
   }
   .navbar-nav .nav-item:last-child .nav-link { border-bottom: none; }
   .navbar .nav-link::after { display: none; } /* underline animasi tidak relevan di mobile */
@@ -1171,6 +1212,21 @@ html, body {
     inset: 0;
     background: rgba(0, 0, 0, 0.35);
     z-index: 996;
+    opacity: 0;
+    animation: navbarBackdropFadeIn 0.28s ease forwards;
+  }
+  @keyframes navbarBackdropFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Icon hamburger <-> silang berputar halus saat menu dibuka/tutup */
+  .navbar-toggler i {
+    display: inline-block;
+    transition: transform 0.25s ease;
+  }
+  .menu-open .navbar-toggler i {
+    transform: rotate(90deg);
   }
 }
 
