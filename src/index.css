@@ -303,7 +303,8 @@ html, body {
 
 /* ================= ABOUT SECTION ================= */
 .about {
-    padding: 40px 0 0 0;
+    padding: 70px 0;
+    background: #fff;
 }
 .about h2 {
     font-size: 32px;
@@ -336,6 +337,7 @@ html, body {
     color: #4d4c4c;
     text-align: justify;
     line-height: 32px;
+    margin-bottom: 10px;
 }
 .about .description-home {
     font-size: 17px;
@@ -344,12 +346,59 @@ html, body {
     text-align: justify;
     line-height: 30px;
 }
-.about-img img {
+
+/* Kolom gambar: dibingkai rapi, sejajar vertikal dengan teks, ada aksen bentuk & badge */
+.about-img-col {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+.about-img-frame {
+    position: relative;
     width: 100%;
     max-width: 480px;
-    border-radius: 16px;
-    box-shadow: 0px 10px 35px rgba(0, 0, 0, 0.15);
+    height: 100%;
+    min-height: 460px;
+    padding: 46px 40px;
+    background: linear-gradient(135deg, #f4f8ff 0%, #eaf1ff 100%);
+    border-radius: 24px;
+    box-shadow: 0 20px 45px rgba(15, 46, 87, 0.12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
+.about-img-frame::before {
+    content: '';
+    position: absolute;
+    inset: 14px;
+    border: 2px dashed rgba(22, 74, 146, 0.25);
+    border-radius: 16px;
+    pointer-events: none;
+}
+.about-img-frame img {
+    width: 80%;
+    max-width: 380px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.12));
+}
+.about-img-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 26px;
+    padding: 10px 18px;
+    background: #fff;
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(15, 46, 87, 0.15);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary);
+}
+.about-img-badge i { color: var(--highlight); }
+
 .icon-box {
     margin-top: 25px;
 }
@@ -369,13 +418,19 @@ html, body {
 .icon-box .description {
     font-size: 15px;
     color: #666;
-    margin-left: 40px;
+    margin-left: 0;
 }
+.mission-list {
+    padding-left: 22px;
+    margin: 0;
+}
+.mission-list li { margin-bottom: 6px; }
 /* Override ukuran teks icon-box khusus di dalam .about */
 .about .icon-box .title { font-size: 20px; margin-bottom: 10px; }
 .about .icon-box .description { line-height: 28px; font-size: 18px; margin-left: 0; }
 @media (max-width: 991px) {
-    .about-img img { max-width: 100%; }
+    .about-img-frame { max-width: 360px; min-height: 340px; padding: 34px 26px; }
+    .about-img-frame img { max-width: 240px; }
 }
 .btn-download {
     display: inline-flex;

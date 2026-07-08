@@ -1,52 +1,60 @@
 export default function About() {
   return (
-    <section id="about" className="about">
-      <div className="container-fluid">
-        <div className="row">
+    <section id="about" className="about" aria-labelledby="about-heading">
+      <div className="container">
+        <div className="row align-items-stretch gy-5">
           <div
-            className="col-xl-6 col-lg-6 d-flex justify-content-center align-items-stretch"
+            className="col-lg-5 about-img-col"
             data-aos="fade-right"
           >
-            <img
-              src="/bahan/img/Logo.png"
-              className="img-fluid w-75 rounded"
-              alt="Profil Perusahaan PT Shinrai Vision Engineering Machining Cikarang"
-            />
+            <div className="about-img-frame">
+              <img
+                src="/bahan/img/bg-testimonials.jpg"
+                className="img-fluid"
+                alt="Logo PT Shinrai Vision Engineering, penyedia jasa machining dan fabrikasi di Cikarang"
+                width="480"
+                height="480"
+                loading="lazy"
+              />
+              <span className="about-img-badge">
+                <i className="fas fa-industry" aria-hidden="true"></i>
+                Melayani Industri Cikarang &amp; Sekitarnya
+              </span>
+            </div>
           </div>
 
           <div
-            className="col-xl-6 col-lg-6 icon-boxes d-flex flex-column py-3 px-4"
+            className="col-lg-7 icon-boxes d-flex flex-column"
             data-aos="fade-left"
           >
-            <h2>Tentang Kami</h2>
+            <h2 id="about-heading">Tentang Kami</h2>
             <p className="description-home" data-aos="zoom-in" data-aos-delay="100">
-              <strong>PT Shinrai Vision Engineering</strong> adalah perusahaan yang bergerak di
-              bidang Machining dan Fabrication, berkomitmen untuk memberikan solusi manufaktur
-              berkualitas tinggi dan presisi. Kami menyediakan layanan customize part serta
-              pengerjaan fabrication project untuk memenuhi kebutuhan spesifik industri klien.
+              <strong>PT Shinrai Vision Engineering</strong> adalah perusahaan jasa machining dan
+              fabrikasi di Cikarang, Bekasi, yang berkomitmen memberikan solusi manufaktur
+              berkualitas tinggi dan presisi. Kami melayani pengerjaan bubut CNC, milling, custom
+              part, hingga fabrication project untuk memenuhi kebutuhan spesifik industri
+              otomotif, packaging, dan manufaktur lain di kawasan Cikarang dan sekitarnya.
             </p>
 
             <div className="icon-box" data-aos="zoom-in" data-aos-delay="200">
-              <h4 className="title">
-                <i className="fas fa-eye"></i> Visi
-              </h4>
+              <h3 className="title">
+                <i className="fas fa-eye" aria-hidden="true"></i> Visi
+              </h3>
               <p className="description">
-                Menjadi mitra manufaktur yang terpercaya dan inovatif dalam memberikan solusi
-                teknik yang presisi dan tepat waktu.
+                Menjadi mitra jasa machining dan fabrikasi terpercaya dan inovatif di Cikarang,
+                dengan solusi teknik yang presisi dan tepat waktu.
               </p>
             </div>
 
             <div className="icon-box" data-aos="zoom-in" data-aos-delay="300">
-              <h4 className="title">
-                <i className="fa fa-bullseye"></i> Misi
-              </h4>
-              <p className="description">
-                1. Mengutamakan kualitas pengerjaan.
-                <br />
-                2. Berinovasi dalam teknologi manufaktur.
-                <br />
-                3. Membangun kemitraan jangka panjang dengan integritas.
-              </p>
+              <h3 className="title">
+                <i className="fa fa-bullseye" aria-hidden="true"></i> Misi
+              </h3>
+              <ol className="description mission-list">
+                <li>Mengutamakan kualitas pengerjaan machining dan fabrikasi.</li>
+                <li>Berinovasi dalam teknologi manufaktur dan mesin CNC.</li>
+                <li>Membangun kemitraan jangka panjang dengan integritas.</li>
+              </ol>
             </div>
 
             <div className="text-center text-lg-start mt-3" data-aos="zoom-in" data-aos-delay="350">
@@ -54,9 +62,9 @@ export default function About() {
                 href="/bahan/pdf/Company-Profile-Shinrai-Vision-Engineering.pdf"
                 download
                 className="btn-download"
-                title="Download Company Profile PT Shinrai Vision"
+                title="Download Company Profile PT Shinrai Vision Engineering - Jasa Machining Cikarang"
               >
-                <i className="fas fa-download"></i> Download Company Profile
+                <i className="fas fa-download" aria-hidden="true"></i> Download Company Profile
               </a>
             </div>
           </div>
