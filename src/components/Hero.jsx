@@ -8,7 +8,7 @@ export default function Hero() {
             data-aos="zoom-out"
             data-aos-duration="1000"
           >
-            <h1>Jasa Machining dan Fabrication</h1>
+            <h1>Jasa Machining dan Fabrication di Cikarang</h1>
             <h2>Komitmen, Efisien, Presisi &amp; Integritas untuk Kebutuhan Industri Anda</h2>
             <ul>
               <li>

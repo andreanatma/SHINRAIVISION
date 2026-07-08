@@ -1014,8 +1014,6 @@ html, body {
     transform: translateY(-3px) scale(1.05);
     border-color: transparent;
 }
-#footer .footer-contact i.fa-whatsapp,
-#footer .footer-social i.fa-facebook-square { }
 #footer .footer-contact li:hover i.fa-whatsapp { background: #25D366; }
 #footer .footer-contact li:hover i.fa-phone-alt { background: var(--highlight, #FD7E14); }
 #footer .footer-contact li:hover i.fa-envelope { background: #EA4335; }

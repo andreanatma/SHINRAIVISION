@@ -14,22 +14,26 @@ import Faq from './components/Faq';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ContactWidget from './components/ContactWidget';
+import faqs from './data/faq';
 
 const SITE_URL = 'https://www.shinraivision.com/';
 const SITE_TITLE = 'Jasa Machining & Fabrication Cikarang | PT Shinrai Vision Engineering';
 const SITE_DESCRIPTION =
-  'PT Shinrai Vision Engineering melayani jasa Machining, Fabrikasi, dan Customize Part presisi tinggi di Cikarang, Bekasi. Komitmen, Efisien & Integritas.';
+  'Jasa machining, fabrikasi, dan customize part presisi tinggi di Cikarang, Bekasi. Melayani spare part industri, dies, mold, jig & fixture untuk industri Packaging & Automotive. Komitmen, Efisien & Integritas.';
 const SITE_IMAGE = `${SITE_URL}bahan/img/Logo.png`;
 
 const LOCAL_BUSINESS_JSON_LD = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
+  '@id': `${SITE_URL}#organization`,
   name: 'PT Shinrai Vision Engineering',
   image: SITE_IMAGE,
+  logo: SITE_IMAGE,
   description:
-    'Perusahaan yang bergerak di bidang Machining dan Fabrication, berkomitmen untuk memberikan solusi manufaktur berkualitas tinggi dan presisi.',
+    'Perusahaan yang bergerak di bidang Machining dan Fabrication di Cikarang, berkomitmen untuk memberikan solusi manufaktur berkualitas tinggi dan presisi untuk industri Packaging dan Automotive.',
   url: SITE_URL,
   telephone: '+6288290497317',
+  priceRange: '$$',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Jalan Ciantra Gang Pelangi RT.7/RW.4, Kampung Ciantra Pojok',
@@ -38,6 +42,58 @@ const LOCAL_BUSINESS_JSON_LD = {
     postalCode: '17853',
     addressCountry: 'ID',
   },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: '-6.3418',
+    longitude: '107.1499',
+  },
+  areaServed: ['Cikarang', 'Bekasi', 'Jawa Barat', 'Jabodetabek'],
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+    opens: '08:00',
+    closes: '17:00',
+  },
+  sameAs: [
+    'https://facebook.com/shinraivision',
+    'https://instagram.com/shinraivision',
+    'https://linkedin.com/company/shinraivision',
+  ],
+};
+
+const SERVICE_JSON_LD = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Jasa Machining dan Fabrication',
+  provider: { '@id': `${SITE_URL}#organization` },
+  areaServed: {
+    '@type': 'City',
+    name: 'Cikarang',
+  },
+  description:
+    'Layanan Machining, Fabrikasi, Customize Parts, dan High Precision Manufacturing untuk kebutuhan industri di Cikarang dan sekitarnya.',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Layanan Shinrai Vision Engineering',
+    itemListElement: [
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Jasa Machining CNC & Bubut' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Jasa Fabrication & Custom Part' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Pembuatan Dies, Mold, Jig & Fixture' } },
+    ],
+  },
+};
+
+const FAQ_JSON_LD = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
 };
 
 function App() {
@@ -59,13 +115,16 @@ function App() {
         <meta name="description" content={SITE_DESCRIPTION} />
         <meta
           name="keywords"
-          content="jasa machining cikarang, fabrikasi cikarang, customize part bekasi, jasa cnc cikarang, fabrikasi logam, PT Shinrai Vision Engineering"
+          content="jasa machining cikarang, fabrikasi cikarang, bengkel bubut cikarang, jasa cnc cikarang, customize part bekasi, jasa fabrikasi logam bekasi, jig fixture cikarang, dies mold cikarang, PT Shinrai Vision Engineering"
         />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="PT Shinrai Vision Engineering" />
+        <meta name="geo.region" content="ID-JB" />
+        <meta name="geo.placename" content="Cikarang, Bekasi" />
         <link rel="canonical" href={SITE_URL} />
 
         <meta property="og:type" content="website" />
+        <meta property="og:locale" content="id_ID" />
         <meta property="og:url" content={SITE_URL} />
         <meta property="og:title" content={SITE_TITLE} />
         <meta property="og:description" content={SITE_DESCRIPTION} />
@@ -79,6 +138,12 @@ function App() {
 
         <script type="application/ld+json">
           {JSON.stringify(LOCAL_BUSINESS_JSON_LD)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(SERVICE_JSON_LD)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(FAQ_JSON_LD)}
         </script>
       </Helmet>
 
