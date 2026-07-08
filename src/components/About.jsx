@@ -9,7 +9,7 @@ export default function About() {
           >
             <div className="about-img-frame">
               <img
-                src="/bahan/img/bg-testimonials.jpg"
+                src="/bahan/img/Logo.png"
                 className="img-fluid"
                 alt="Logo PT Shinrai Vision Engineering, penyedia jasa machining dan fabrikasi di Cikarang"
                 width="480"
