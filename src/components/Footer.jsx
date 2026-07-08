@@ -15,8 +15,8 @@ export default function Footer() {
             <div className="footer-brand">
               <h3>PT. Shinrai Vision Engineering</h3>
               <p>
-                PT Shinrai Vision Engineering adalah perusahaan Jasa terbaik di Cikarang, Jawa
-                Barat yang sudah memiliki pengalaman pada bidang Jasa Machining &amp; Fabrication.
+                PT Shinrai Vision Engineering adalah Machining and Fabrication Specialist
+                terpercaya yang berpengalaman melayani klien industri di seluruh Indonesia.
                 Jangan ragu untuk menghubungi tim kami perihal Fabrikasi dan Machining.
               </p>
             </div>

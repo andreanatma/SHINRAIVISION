@@ -11,14 +11,14 @@ export default function About() {
               <img
                 src="/bahan/img/Logo.png"
                 className="img-fluid"
-                alt="Logo PT Shinrai Vision Engineering, penyedia jasa machining dan fabrikasi di Cikarang"
+                alt="Logo PT Shinrai Vision Engineering, spesialis jasa machining dan fabrikasi skala nasional"
                 width="480"
                 height="480"
                 loading="lazy"
               />
               <span className="about-img-badge">
                 <i className="fas fa-industry" aria-hidden="true"></i>
-                Melayani Industri Cikarang &amp; Sekitarnya
+                Melayani Industri di Seluruh Indonesia
               </span>
             </div>
           </div>
@@ -29,11 +29,12 @@ export default function About() {
           >
             <h2 id="about-heading">Tentang Kami</h2>
             <p className="description-home" data-aos="zoom-in" data-aos-delay="100">
-              <strong>PT Shinrai Vision Engineering</strong> adalah perusahaan jasa machining dan
-              fabrikasi di Cikarang, Bekasi, yang berkomitmen memberikan solusi manufaktur
-              berkualitas tinggi dan presisi. Kami melayani pengerjaan bubut CNC, milling, custom
-              part, hingga fabrication project untuk memenuhi kebutuhan spesifik industri
-              otomotif, packaging, dan manufaktur lain di kawasan Cikarang dan sekitarnya.
+              <strong>PT Shinrai Vision Engineering</strong> adalah perusahaan spesialis jasa
+              machining dan fabrikasi yang berkomitmen memberikan solusi manufaktur presisi
+              berkualitas tinggi. Didukung mesin berteknologi tinggi dan sumber daya manusia yang
+              kompeten, kami melayani pengerjaan bubut CNC, milling, custom part, hingga
+              fabrication project untuk memenuhi kebutuhan industri otomotif, packaging, dan
+              manufaktur lainnya di seluruh Indonesia.
             </p>
 
             <div className="icon-box" data-aos="zoom-in" data-aos-delay="200">
@@ -41,8 +42,9 @@ export default function About() {
                 <i className="fas fa-eye" aria-hidden="true"></i> Visi
               </h3>
               <p className="description">
-                Menjadi mitra jasa machining dan fabrikasi terpercaya dan inovatif di Cikarang,
-                dengan solusi teknik yang presisi dan tepat waktu.
+                Menjadi perusahaan terdepan dalam segmen bisnis machining dan fabrikasi yang
+                berkelanjutan, memberikan nilai tambah melalui kualitas unggul, kepuasan
+                pelanggan, dan inovasi berkelanjutan.
               </p>
             </div>
 
@@ -51,9 +53,9 @@ export default function About() {
                 <i className="fa fa-bullseye" aria-hidden="true"></i> Misi
               </h3>
               <ol className="description mission-list">
-                <li>Mengutamakan kualitas pengerjaan machining dan fabrikasi.</li>
-                <li>Berinovasi dalam teknologi manufaktur dan mesin CNC.</li>
-                <li>Membangun kemitraan jangka panjang dengan integritas.</li>
+                <li>Mengembangkan jasa machining dan fabrikasi berkualitas tinggi dan kompetitif yang berfokus pada kepuasan pelanggan.</li>
+                <li>Memperkuat posisi perusahaan sebagai pemimpin pasar melalui efisiensi, teknologi, dan peningkatan kualitas yang konsisten.</li>
+                <li>Membangun perusahaan yang terpercaya dengan profesionalisme dan etika bisnis dalam mencapai tujuan bersama.</li>
               </ol>
             </div>
 
@@ -62,7 +64,7 @@ export default function About() {
                 href="/bahan/pdf/Company-Profile-Shinrai-Vision-Engineering.pdf"
                 download
                 className="btn-download"
-                title="Download Company Profile PT Shinrai Vision Engineering - Jasa Machining Cikarang"
+                title="Download Company Profile PT Shinrai Vision Engineering - Machining and Fabrication Specialist"
               >
                 <i className="fas fa-download" aria-hidden="true"></i> Download Company Profile
               </a>

@@ -8,8 +8,8 @@ export default function Hero() {
             data-aos="zoom-out"
             data-aos-duration="1000"
           >
-            <h1>Jasa Machining dan Fabrication di Cikarang</h1>
-            <h2>Komitmen, Efisien, Presisi &amp; Integritas untuk Kebutuhan Industri Anda</h2>
+            <h1>Machining and Fabrication Specialist</h1>
+            <h2>Solusi Machining &amp; Fabrikasi Presisi untuk Industri di Seluruh Indonesia</h2>
             <ul>
               <li>
                 <i className="fas fa-check-circle"></i> Customize Parts
@@ -49,7 +49,7 @@ export default function Hero() {
             <img
               src="/bahan/img/Logo.png"
               className="img-fluid animated hero-logo-float"
-              alt="Logo PT Shinrai Vision Engineering - Machining & Fabrication Cikarang"
+              alt="Logo PT Shinrai Vision Engineering - Machining & Fabrication Specialist Indonesia"
             />
           </div>
         </div>

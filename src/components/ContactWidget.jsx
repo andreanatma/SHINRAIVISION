@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const INITIAL_FORM = { name: '', email: '', message: '' };
+const INITIAL_FORM = { name: '', email: '', telephone: '', message: '' };
 
 // Tujuan Email FormSubmit.co untuk mengirimkan pesan ke email
 const FORM_ENDPOINT = 'https://formsubmit.co/ajax/marketing@shinraivision.com';
@@ -31,6 +31,7 @@ export default function ContactWidget() {
         body: JSON.stringify({
           name: form.name,
           email: form.email,
+          telephone: form.telephone,
           message: form.message,
           _subject: `Pesan Cepat dari Website - ${form.name}`,
           _template: 'table',
@@ -82,6 +83,14 @@ export default function ContactWidget() {
                 placeholder="* Email"
                 required
                 value={form.email}
+                onChange={handleChange}
+              />
+              <input
+                type="tel"
+                name="telephone"
+                placeholder="* Telephone"
+                required
+                value={form.telephone}
                 onChange={handleChange}
               />
               <textarea
