@@ -92,6 +92,7 @@ export default function Contact() {
                   </div>
                 </div>
               </div>
+              
               <div className="phone mb-4">
                 <div className="row">
                   <div className="col-1">
@@ -100,7 +101,7 @@ export default function Contact() {
                   <div className="col-11 ps-4">
                     <h4>Whatsapp:</h4>
                     <p>
-                      {/* Diperbaiki: Menambahkan tag pembuka <a */}
+                      {/* Diperbaiki: Menambahkan tag pembuka <a> */}
                       <a
                         href="https://wa.me/6288290497317"
                         target="_blank"
@@ -112,7 +113,7 @@ export default function Contact() {
                       </a>
                     </p>
                     <p>
-                      {/* Diperbaiki: Menambahkan tag pembuka <a */}
+                      {/* Diperbaiki: Menambahkan tag pembuka <a> */}
                       <a
                         href="https://wa.me/6282123077455"
                         target="_blank"
@@ -126,6 +127,7 @@ export default function Contact() {
                   </div>
                 </div>
               </div>
+              
               <div className="email">
                 <div className="row">
                   <div className="col-1">
@@ -134,7 +136,7 @@ export default function Contact() {
                   <div className="col-11 ps-4">
                     <h4>Email:</h4>
                     <p>
-                      {/* Diperbaiki: Menambahkan tag pembuka <a */}
+                      {/* Diperbaiki: Menambahkan tag pembuka <a> */}
                       <a
                         href="mailto:sales1@shinraivision.com"
                         title="Email Sales PT Shinrai"
@@ -144,7 +146,7 @@ export default function Contact() {
                       </a>
                     </p>
                     <p>
-                      {/* Diperbaiki: Menambahkan tag pembuka <a */}
+                      {/* Diperbaiki: Menambahkan tag pembuka <a> */}
                       <a
                         href="mailto:marketing@shinraivision.com"
                         title="Email Marketing PT Shinrai"
@@ -220,8 +222,8 @@ export default function Contact() {
                   ></textarea>
                   <label htmlFor="message">Message</label>
                 </div>
-                <button type="submit" className="btn btn-primary w-100 py-2" disabled={isSubmitting}>
-                  <i className="fa fa-paper-plane me-2"></i>
+                <button type="submit" className="contact-send-btn" disabled={isSubmitting}>
+                  <i className="fa fa-paper-plane" aria-hidden="true"></i>
                   {isSubmitting ? 'Mengirim...' : 'Send'}
                 </button>
                 {status === 'success' && (

@@ -3,9 +3,11 @@ import GLightbox from 'glightbox';
 import 'glightbox/dist/css/glightbox.min.css';
 import galleryItems from '../data/gallery';
 
+const INITIAL_VISIBLE = 6;
+
 export default function Gallery() {
   // State untuk membatasi jumlah gambar yang tampil awal (misal: 6 gambar)
-  const [visibleImages, setVisibleImages] = useState(6);
+  const [visibleImages, setVisibleImages] = useState(INITIAL_VISIBLE);
 
   useEffect(() => {
     // Inisialisasi ulang GLightbox setiap kali jumlah gambar yang tampil berubah
@@ -20,8 +22,17 @@ export default function Gallery() {
     };
   }, [visibleImages]); 
 
-  function handleLoadMore() {
-    setVisibleImages(galleryItems.length); // Tampilkan semua gambar saat diklik
+  const isExpanded = visibleImages >= galleryItems.length;
+
+  function handleToggleImages() {
+    if (isExpanded) {
+      // Kembali ke tampilan awal (Lebih Sedikit)
+      setVisibleImages(INITIAL_VISIBLE);
+      document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      // Tampilkan semua gambar (Selengkapnya)
+      setVisibleImages(galleryItems.length);
+    }
   }
 
   const structuredData = {
@@ -55,6 +66,7 @@ export default function Gallery() {
             <div className="col-lg-4 col-md-6 col-sm-6" key={item.id}>
               
               <figure className="gallery-item card h-100 border rounded-0 shadow-sm p-3 mb-0" style={{ backgroundColor: '#fff' }}>
+                {/* Diperbaiki: Menambahkan tag pembuka <a> di sini */}
                 <a
                   href={encodeURI(item.image)}
                   title={item.title}
@@ -86,11 +98,15 @@ export default function Gallery() {
           ))}
         </div>
 
-        {/* Tombol Load More (Selengkapnya) */}
-        {visibleImages < galleryItems.length && (
+        {/* Tombol Load More / Lebih Sedikit */}
+        {galleryItems.length > INITIAL_VISIBLE && (
           <div className="text-center mt-5" data-aos="fade-up">
-            <button className="btn btn-primary rounded-pill px-4" onClick={handleLoadMore} style={{ backgroundColor: '#0d6efd' }}>
-              Selengkapnya <i className="fas fa-arrow-right ms-2" style={{ fontSize: '0.8rem' }}></i>
+            <button type="button" className="load-more-btn" onClick={handleToggleImages}>
+              {isExpanded ? (
+                <>Lebih Sedikit <i className="fas fa-arrow-up load-more-icon" aria-hidden="true"></i></>
+              ) : (
+                <>Selengkapnya <i className="fas fa-arrow-right load-more-icon" aria-hidden="true"></i></>
+              )}
             </button>
           </div>
         )}

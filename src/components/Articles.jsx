@@ -4,11 +4,14 @@ import articles from '../data/articles';
 
 const SITE_URL = 'https://www.shinraivision.com/';
 
+const INITIAL_VISIBLE = 3;
+
 export default function Articles() {
   const [activeSlug, setActiveSlug] = useState(null);
   // Menampilkan 3 artikel pertama secara default
-  const [visibleArticles, setVisibleArticles] = useState(3);
+  const [visibleArticles, setVisibleArticles] = useState(INITIAL_VISIBLE);
   const activeArticle = articles.find((item) => item.slug === activeSlug) || null;
+  const isExpanded = visibleArticles >= articles.length;
 
   // Sinkronkan slug artikel dengan URL hash (#article/slug-nya) supaya artikel
   // punya alamat unik yang bisa dibagikan, di-bookmark, dan diikuti crawler.
@@ -33,8 +36,15 @@ export default function Articles() {
     window.history.pushState(null, '', '#article');
   }
 
-  function handleLoadMore() {
-    setVisibleArticles(articles.length); // Tampilkan semua artikel saat diklik
+  function handleToggleArticles() {
+    if (isExpanded) {
+      // Kembali ke tampilan awal (Lebih Sedikit)
+      setVisibleArticles(INITIAL_VISIBLE);
+      document.getElementById('article')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      // Tampilkan semua artikel (Selengkapnya)
+      setVisibleArticles(articles.length);
+    }
   }
 
   const blogListJsonLd = {
@@ -100,10 +110,10 @@ export default function Articles() {
 
       <div className="container">
         {/* ================= HEADER SECTION ================= */}
-      <div className="section-title" data-aos="fade-up">
-        <h2 id="article-heading">Keep Update With Our Articles</h2>
-        <p>Articles</p>
-    </div>
+        <div className="section-title" data-aos="fade-up">
+          <h2 id="article-heading">Keep Update With Our Articles</h2>
+          <p>Articles</p>
+        </div>
 
         {/* ================= LIST ARTIKEL ================= */}
         {!activeArticle && (
@@ -112,6 +122,7 @@ export default function Articles() {
               {articles.slice(0, visibleArticles).map((article, index) => (
                 <div className="col" data-aos="zoom-in" data-aos-delay={100 * (index + 1)} key={article.id}>
                   <article className="card h-100 border rounded-0 shadow-sm">
+                    {/* Diperbaiki: Menambahkan tag pembuka <a> */}
                     <a
                       href={`#article/${article.slug}`}
                       onClick={(e) => { e.preventDefault(); openArticle(article.slug); }}
@@ -144,11 +155,15 @@ export default function Articles() {
               ))}
             </div>
 
-            {/* Tombol Load More */}
-            {visibleArticles < articles.length && (
+            {/* Tombol Load More / Lebih Sedikit */}
+            {articles.length > INITIAL_VISIBLE && (
               <div className="text-center mt-5" data-aos="fade-up">
-                <button className="btn btn-primary rounded-pill px-4" onClick={handleLoadMore} style={{ backgroundColor: '#0d6efd' }}>
-                  Selengkapnya <i className="fas fa-arrow-right ms-2" style={{ fontSize: '0.8rem' }}></i>
+                <button type="button" className="load-more-btn" onClick={handleToggleArticles}>
+                  {isExpanded ? (
+                    <>Lebih Sedikit <i className="fas fa-arrow-up load-more-icon" aria-hidden="true"></i></>
+                  ) : (
+                    <>Selengkapnya <i className="fas fa-arrow-right load-more-icon" aria-hidden="true"></i></>
+                  )}
                 </button>
               </div>
             )}
@@ -201,6 +216,7 @@ export default function Articles() {
                   .slice(0, 2)
                   .map((item) => (
                     <div className="col" key={item.id}>
+                      {/* Diperbaiki: Menambahkan tag pembuka <a> */}
                       <a
                         href={`#article/${item.slug}`}
                         onClick={(e) => { e.preventDefault(); openArticle(item.slug); }}
@@ -218,6 +234,7 @@ export default function Articles() {
                     </div>
                   ))}
                 <div className="col">
+                  {/* Diperbaiki: Menambahkan tag pembuka <a> */}
                   <a
                     href="https://shinraivision.vercel.app/"
                     target="_blank"

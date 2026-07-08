@@ -23,9 +23,8 @@ export default function Footer() {
           </div>
 
           {/* 2. Navigation Section */}
-          <div className="col-lg-2 col-md-6">
+          <div className="col-lg-2 col-md-6 footer-col-links">
             <h4>Useful Links</h4>
-            {/* SEO: Gunakan tag <nav> agar mesin pencari tahu ini adalah area navigasi pendukung */}
             <nav aria-label="Footer Navigation">
               <ul className="footer-links">
                 <li>
@@ -49,9 +48,8 @@ export default function Footer() {
           </div>
 
           {/* 3. Contact Section */}
-          <div className="col-lg-3 col-md-6">
+          <div className="col-lg-3 col-md-6 footer-col-contact">
             <h4>Contact</h4>
-            {/* SEO: Gunakan tag <address> untuk membungkus informasi kontak entitas bisnis */}
             <address style={{ fontStyle: 'normal' }}>
               <ul className="footer-contact">
                 <li>
@@ -77,12 +75,11 @@ export default function Footer() {
           </div>
 
           {/* 4. Social Media Section */}
-          <div className="col-lg-3 col-md-6">
+          <div className="col-lg-3 col-md-6 footer-col-social">
             <h4>Our Social Media</h4>
             <ul className="footer-social">
               <li>
                 <i className="fab fa-facebook-square" aria-hidden="true"></i>
-                {/* SEO: Hindari href="#" karena Google menganggapnya sebagai "Broken Link". Ganti dengan URL asli nantinya. */}
                 <a href="https://facebook.com/shinraivision" target="_blank" rel="noopener noreferrer" title="Kunjungi Facebook PT Shinrai Vision Engineering">
                   Facebook
                 </a>
