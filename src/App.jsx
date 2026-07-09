@@ -16,10 +16,10 @@ import Footer from './components/Footer';
 import ContactWidget from './components/ContactWidget';
 import faqs from './data/faq';
 
-const SITE_URL = 'https://www.shinraivision.com/';
-const SITE_TITLE = 'Jasa Machining & Fabrication Cikarang | PT Shinrai Vision Engineering';
+const SITE_URL = 'https://shinraivision.com/';
+const SITE_TITLE = 'Machining and Fabrication Specialist | PT Shinrai Vision Engineering';
 const SITE_DESCRIPTION =
-  'Jasa machining, fabrikasi, dan customize part presisi tinggi di Cikarang, Bekasi. Melayani spare part industri, dies, mold, jig & fixture untuk industri Packaging & Automotive. Komitmen, Efisien & Integritas.';
+  'Machining and Fabrication Specialist yang melayani jasa machining, fabrikasi, dan customize part presisi tinggi untuk klien industri di seluruh Indonesia. Melayani spare part industri, dies, mold, jig & fixture untuk industri Packaging & Automotive. Komitmen, Efisien & Integritas.';
 const SITE_IMAGE = `${SITE_URL}bahan/img/Logo.png`;
 
 const LOCAL_BUSINESS_JSON_LD = {
@@ -30,7 +30,7 @@ const LOCAL_BUSINESS_JSON_LD = {
   image: SITE_IMAGE,
   logo: SITE_IMAGE,
   description:
-    'Perusahaan yang bergerak di bidang Machining dan Fabrication di Cikarang, berkomitmen untuk memberikan solusi manufaktur berkualitas tinggi dan presisi untuk industri Packaging dan Automotive.',
+    'Machining and Fabrication Specialist yang berkomitmen memberikan solusi manufaktur berkualitas tinggi dan presisi untuk industri Packaging dan Automotive di seluruh Indonesia.',
   url: SITE_URL,
   telephone: '+6288290497317',
   priceRange: '$$',
@@ -47,7 +47,7 @@ const LOCAL_BUSINESS_JSON_LD = {
     latitude: '-6.3418',
     longitude: '107.1499',
   },
-  areaServed: ['Cikarang', 'Bekasi', 'Jawa Barat', 'Jabodetabek'],
+  areaServed: 'ID',
   openingHoursSpecification: {
     '@type': 'OpeningHoursSpecification',
     dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
@@ -67,11 +67,11 @@ const SERVICE_JSON_LD = {
   serviceType: 'Jasa Machining dan Fabrication',
   provider: { '@id': `${SITE_URL}#organization` },
   areaServed: {
-    '@type': 'City',
-    name: 'Cikarang',
+    '@type': 'Country',
+    name: 'Indonesia',
   },
   description:
-    'Layanan Machining, Fabrikasi, Customize Parts, dan High Precision Manufacturing untuk kebutuhan industri di Cikarang dan sekitarnya.',
+    'Layanan Machining, Fabrikasi, Customize Parts, dan High Precision Manufacturing untuk kebutuhan industri di seluruh Indonesia.',
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Layanan Shinrai Vision Engineering',
@@ -115,12 +115,12 @@ function App() {
         <meta name="description" content={SITE_DESCRIPTION} />
         <meta
           name="keywords"
-          content="jasa machining cikarang, fabrikasi cikarang, bengkel bubut cikarang, jasa cnc cikarang, customize part bekasi, jasa fabrikasi logam bekasi, jig fixture cikarang, dies mold cikarang, PT Shinrai Vision Engineering"
+          content="machining and fabrication specialist, jasa machining indonesia, fabrikasi logam nasional, bengkel bubut cnc, customize part, jig fixture, dies mold, PT Shinrai Vision Engineering"
         />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="PT Shinrai Vision Engineering" />
-        <meta name="geo.region" content="ID-JB" />
-        <meta name="geo.placename" content="Cikarang, Bekasi" />
+        <meta name="geo.region" content="ID" />
+        <meta name="geo.placename" content="Indonesia" />
         <link rel="canonical" href={SITE_URL} />
 
         <meta property="og:type" content="website" />
