@@ -1299,16 +1299,14 @@ html, body {
 }
 
 /* =========================================================
-   MOBILE RESPONSIVE ENHANCEMENTS (ditambahkan)
+   MOBILE RESPONSIVE ENHANCEMENTS
+   (Digabung per breakpoint: sebelumnya 9 blok terpisah untuk
+   max-width 575px + 2 blok 991px + 2 blok 767px)
    ========================================================= */
 
-/* --- Global spacing lebih ringkas di mobile --- */
-@media (max-width: 767px) {
-  section { padding: 50px 0; }
-}
-
-/* --- NAVBAR MOBILE --- */
+/* ---------- Breakpoint: max-width 991px (tablet & navbar) ---------- */
 @media (max-width: 991px) {
+  /* Navbar */
   #header { padding: 12px 0; }
   /* header transparan diganti gradient saat belum scroll, biar teks tetap terbaca di atas hero */
   #header:not(.header-scrolled) {
@@ -1404,10 +1402,6 @@ html, body {
     opacity: 0;
     animation: navbarBackdropFadeIn 0.28s ease forwards;
   }
-  @keyframes navbarBackdropFadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
 
   /* Icon hamburger <-> silang berputar halus saat menu dibuka/tutup */
   .navbar-toggler i {
@@ -1417,10 +1411,8 @@ html, body {
   .menu-open .navbar-toggler i {
     transform: rotate(90deg);
   }
-}
 
-/* --- HERO MOBILE --- */
-@media (max-width: 991px) {
+  /* Hero */
   #hero {
     min-height: auto;
     padding: 110px 0 60px 0;
@@ -1458,68 +1450,23 @@ html, body {
   .btn-cta-wa {
     animation-name: wa-heartbeat-mobile;
   }
-  @keyframes wa-heartbeat-mobile {
-    0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(253, 126, 20, 0.45); }
-    50% { transform: scale(1.025); box-shadow: 0 0 0 8px rgba(253, 126, 20, 0); }
-  }
-}
-@media (max-width: 575px) {
-  #hero h1 { font-size: 24px; }
-  #hero h2 { font-size: 15px; }
-  #hero ul li { font-size: 15px; }
-  .hero-img { max-width: 240px; width: 70%; }
-  .btn-cta-wa,
-  .btn-cta-quote {
-    padding: 12px 20px;
-    font-size: 1rem;
-  }
 }
 
-/* --- SECTION TITLE MOBILE --- */
-@media (max-width: 575px) {
-  .section-title p, .section-title h3 { font-size: 22px; }
-  .section-title h2::after, .section-title-left h2::after { width: 70px; }
+@keyframes navbarBackdropFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes wa-heartbeat-mobile {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(253, 126, 20, 0.45); }
+  50% { transform: scale(1.025); box-shadow: 0 0 0 8px rgba(253, 126, 20, 0); }
 }
 
-/* --- ABOUT MOBILE --- */
-@media (max-width: 575px) {
-  .about-img-frame { max-width: 300px; min-height: 260px; padding: 16px; }
-  .about-img-frame img { max-width: 260px; max-height: 240px; }
-  .about h2 { font-size: 24px; }
-  .about .icon-boxes h2 { font-size: 22px; text-align: center; }
-  .about .icon-boxes .description-home,
-  .about .icon-box .description {
-    font-size: 15px;
-    line-height: 26px;
-    margin-left: 0;
-  }
-}
-
-/* --- CONTACT MOBILE --- */
-@media (max-width: 575px) {
-  .contact .info .col-1 { flex: 0 0 50px; max-width: 50px; padding-right: 0; }
-  .contact .info .col-11 { flex: 0 0 calc(100% - 50px); max-width: calc(100% - 50px); padding-left: 16px !important; }
-  .contact .info, .contact .form-box { padding: 20px; }
-  .contact .map-box iframe { height: 260px; }
-}
-
-/* --- FAQ MOBILE --- */
-@media (max-width: 575px) {
-  .faq-question { padding: 16px; gap: 10px; }
-  .faq-question h3 { font-size: 14.5px; }
-  .faq-answer { padding: 0 16px; }
-  .faq-item-active .faq-answer { padding: 0 16px 18px 16px; }
-}
-
-/* --- ARTICLE DETAIL MOBILE --- */
-@media (max-width: 575px) {
-  .article-detail-title { font-size: 1.4rem; }
-  .article-detail-img-wrap { padding: 10px; }
-  .article-detail-body { font-size: 0.95rem; }
-}
-
-/* --- FOOTER MOBILE --- */
+/* ---------- Breakpoint: max-width 767px (small tablet / large phone) ---------- */
 @media (max-width: 767px) {
+  /* Global spacing lebih ringkas di mobile */
+  section { padding: 50px 0; }
+
+  /* Footer */
   #footer { padding-top: 50px; text-align: center; }
   #footer .footer-brand {
     border-left: none;
@@ -1537,17 +1484,17 @@ html, body {
     align-items: flex-start;
     margin: 0 auto;
   }
-  #footer .footer-top { padding-bottom: 20px; }
+  #footer .footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+  }
   #footer .col-lg-4 { margin-bottom: 12px; }
 
   /* Sembunyikan Useful Links di mobile */
   #footer .footer-col-links { display: none; }
 
   /* Contact & Our Social Media berjejeran 2 kolom */
-  #footer .footer-top {
-    display: flex;
-    flex-wrap: wrap;
-  }
   #footer .footer-col-contact,
   #footer .footer-col-social {
     flex: 0 0 50%;
@@ -1569,17 +1516,60 @@ html, body {
   }
 }
 
-/* --- TESTIMONIALS MOBILE --- */
+/* ---------- Breakpoint: max-width 575px (phone) ---------- */
 @media (max-width: 575px) {
-  .testimonials { padding: 55px 0; }
-  .testimonial-item h3 { font-size: 16px; }
-  .testimonial-item p { font-size: 14px; }
-}
+  /* Hero */
+  #hero h1 { font-size: 24px; }
+  #hero h2 { font-size: 15px; }
+  #hero ul li { font-size: 15px; }
+  .hero-img { max-width: 240px; width: 70%; }
+  .btn-cta-wa,
+  .btn-cta-quote {
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
 
-/* --- CONTACT WIDGET (FLOATING CHAT) MOBILE --- */
-@media (max-width: 575px) {
+  /* Section title */
+  .section-title p, .section-title h3 { font-size: 22px; }
+  .section-title h2::after, .section-title-left h2::after { width: 70px; }
+
+  /* About */
+  .about-img-frame { max-width: 300px; min-height: 260px; padding: 16px; }
+  .about-img-frame img { max-width: 260px; max-height: 240px; }
+  .about h2 { font-size: 24px; }
+  .about .icon-boxes h2 { font-size: 22px; text-align: center; }
+  .about .icon-boxes .description-home,
+  .about .icon-box .description {
+    font-size: 15px;
+    line-height: 26px;
+    margin-left: 0;
+  }
+
+  /* Contact section */
+  .contact .info .col-1 { flex: 0 0 50px; max-width: 50px; padding-right: 0; }
+  .contact .info .col-11 { flex: 0 0 calc(100% - 50px); max-width: calc(100% - 50px); padding-left: 16px !important; }
+  .contact .info, .contact .form-box { padding: 20px; }
+  .contact .map-box iframe { height: 260px; }
+
+  /* Contact floating widget */
   .contact-widget { right: 12px; bottom: 70px; }
   .contact-widget-toggle { width: 50px; height: 50px; font-size: 19px; }
   .contact-widget-panel { width: min(88vw, 320px); right: -6px; }
   .back-to-top { right: 12px; bottom: 12px; width: 40px; height: 40px; }
+
+  /* FAQ */
+  .faq-question { padding: 16px; gap: 10px; }
+  .faq-question h3 { font-size: 14.5px; }
+  .faq-answer { padding: 0 16px; }
+  .faq-item-active .faq-answer { padding: 0 16px 18px 16px; }
+
+  /* Article detail */
+  .article-detail-title { font-size: 1.4rem; }
+  .article-detail-img-wrap { padding: 10px; }
+  .article-detail-body { font-size: 0.95rem; }
+
+  /* Testimonials */
+  .testimonials { padding: 55px 0; }
+  .testimonial-item h3 { font-size: 16px; }
+  .testimonial-item p { font-size: 14px; }
 }
