@@ -66,8 +66,20 @@ export default function Footer() {
                 </li>
                 <li>
                   <i className="far fa-envelope" aria-hidden="true"></i>
-                  <a href="mailto:sales1@shinraivision.com" title="Kirim Email ke Sales">
+                  <a href="mailto:sales1@shinraivision.com" title="Kirim Email ke Sales 1">
                     sales1@shinraivision.com
+                  </a>
+                </li>
+                <li>
+                  <i className="far fa-envelope" aria-hidden="true"></i>
+                  <a href="mailto:sales2@shinraivision.com" title="Kirim Email ke Sales 2">
+                    sales2@shinraivision.com
+                  </a>
+                </li>
+                <li>
+                  <i className="far fa-envelope" aria-hidden="true"></i>
+                  <a href="mailto:marketing@shinraivision.com" title="Kirim Email ke Marketing">
+                    marketing@shinraivision.com
                   </a>
                 </li>
               </ul>

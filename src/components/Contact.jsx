@@ -63,7 +63,7 @@ export default function Contact() {
         <div className="row justify-content-center align-items-center">
           <div className="col-lg-12 mb-5" data-aos="zoom-in" data-aos-delay="100">
             <div className="map-box">
-              {/* Diperbaiki: URL Google Maps dan penambahan simbol $ pada MAPS_QUERY */}
+              {/* Diperbaiki: URL Google Maps dan format template literal */}
               <iframe
                 src={`https://maps.google.com/maps?q=${MAPS_QUERY}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
                 title="Lokasi PT Shinrai Vision Engineering di Google Maps"
@@ -101,7 +101,7 @@ export default function Contact() {
                   <div className="col-11 ps-4">
                     <h4>Whatsapp:</h4>
                     <p>
-                      {/* Diperbaiki: Menambahkan tag pembuka <a> */}
+                      {/* Diperbaiki: Menambahkan tag pembuka <a */}
                       <a
                         href="https://wa.me/6288290497317"
                         target="_blank"
@@ -113,7 +113,7 @@ export default function Contact() {
                       </a>
                     </p>
                     <p>
-                      {/* Diperbaiki: Menambahkan tag pembuka <a> */}
+                      {/* Diperbaiki: Menambahkan tag pembuka <a */}
                       <a
                         href="https://wa.me/6282123077455"
                         target="_blank"
@@ -136,17 +136,27 @@ export default function Contact() {
                   <div className="col-11 ps-4">
                     <h4>Email:</h4>
                     <p>
-                      {/* Diperbaiki: Menambahkan tag pembuka <a> */}
+                      {/* Diperbaiki: Menambahkan tag pembuka <a */}
                       <a
                         href="mailto:sales1@shinraivision.com"
-                        title="Email Sales PT Shinrai"
+                        title="Email Sales 1 PT Shinrai"
                         className="text-dark"
                       >
                         sales1@shinraivision.com
                       </a>
                     </p>
                     <p>
-                      {/* Diperbaiki: Menambahkan tag pembuka <a> */}
+                      {/* Diperbaiki: Menambahkan tag pembuka <a */}
+                      <a
+                        href="mailto:sales2@shinraivision.com"
+                        title="Email Sales 2 PT Shinrai"
+                        className="text-dark"
+                      >
+                        sales2@shinraivision.com
+                      </a>
+                    </p>
+                    <p>
+                      {/* Diperbaiki: Menambahkan tag pembuka <a */}
                       <a
                         href="mailto:marketing@shinraivision.com"
                         title="Email Marketing PT Shinrai"
