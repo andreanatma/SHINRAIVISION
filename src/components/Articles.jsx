@@ -236,7 +236,7 @@ export default function Articles() {
                 <div className="col">
                   {/* Diperbaiki: Menambahkan tag pembuka <a> */}
                   <a
-                    href="https://shinraivision.vercel.app/"
+                    href="https://shinraivision.com/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="suggestion-card suggestion-external text-decoration-none text-dark d-block"
